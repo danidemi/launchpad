@@ -1,0 +1,2 @@
+# TLDs excluded from tlds-all.txt (brand/closed registries). One per line.
+# IANA does not flag brand TLDs; add them here as you find them.
