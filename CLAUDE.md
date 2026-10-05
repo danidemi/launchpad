@@ -43,9 +43,11 @@ standalone if the user already has partial material:
 - **References are lazy**: only load a `references/*.md` file when the
   current phase actually needs it.
 - **Working files**: skills write their output to markdown files in the
-  user's project (e.g. `idea.md`, `vision.md`) unless the user asks for
-  something else — never invent a business idea's content, only structure
-  what the user provides.
+  `launchpad/` folder in the current working directory (e.g.
+  `launchpad/idea.md`, `launchpad/vision.md`), never elsewhere. Every skill
+  repeats this in its own `## Output Location` section, since skills load
+  independently; keep them in sync. Never invent a business idea's content,
+  only structure what the user provides.
 
 ## Local Testing
 

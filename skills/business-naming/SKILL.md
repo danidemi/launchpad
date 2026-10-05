@@ -5,7 +5,7 @@ description: >
   then checks real-world availability. Use when the user wants help naming
   a company or product, asks "what should we call this", wants name ideas,
   or wants to check if a name is available/taken. Produces or updates
-  `naming.md`.
+  `launchpad/naming.md`.
 ---
 
 # business-naming Skill
@@ -15,11 +15,20 @@ startup-name filler. Then verify candidates against reality before
 presenting them as viable — a name nobody can register or find isn't a
 recommendation.
 
+## Output Location
+
+All files this plugin writes go in the `launchpad/` folder at the root of
+the user's project (the current working directory, even if it is a
+subfolder of a git repo). Create the folder if it doesn't exist. Never write plugin
+output anywhere else, and never into the plugin's own directory. If a
+legacy copy of a plugin file (e.g. `idea.md`) exists at the project root and
+the `launchpad/` one does not, tell the user and offer to move it — don't move or overwrite it silently.
+
 ---
 
 ## Phase 1 – Gather Input
 
-Read `idea.md` and `vision.md` if they exist, for problem, customer, and
+Read `launchpad/idea.md` and `launchpad/vision.md` if they exist, for problem, customer, and
 positioning. If neither exists, ask the user for: what the business does,
 who it's for, and any naming constraints (must be a real word, must work in
 Italian and English, must avoid a specific term, length limits, etc.).
@@ -61,9 +70,9 @@ without this check — that's a factual claim the user will act on.
 
 ---
 
-## Phase 5 – Write `naming.md`
+## Phase 5 – Write `launchpad/naming.md`
 
-Write (or update) `naming.md` with: the full candidate list and scores, the
+Write (or update) `launchpad/naming.md` with: the full candidate list and scores, the
 shortlist, and the availability findings per shortlisted name. Recommend a
 top pick with reasoning, but make clear it's a recommendation, not a
 decision — naming is the user's call.

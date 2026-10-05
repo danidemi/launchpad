@@ -7,7 +7,7 @@ description: >
   "structure" an idea, asks for help with a lean canvas or business model
   canvas, or says things like "help me organize this idea", "I have an idea
   for a business", "let's define the concept". Produces or updates
-  `idea.md` in the project.
+  `launchpad/idea.md` in the project.
 ---
 
 # idea-capture Skill
@@ -15,6 +15,15 @@ description: >
 Turn whatever the user has (a sentence, a rant, a half-formed pitch) into a
 structured idea document. Never invent facts about the business — ask when
 something is missing, don't guess and present a guess as fact.
+
+## Output Location
+
+All files this plugin writes go in the `launchpad/` folder at the root of
+the user's project (the current working directory, even if it is a
+subfolder of a git repo). Create the folder if it doesn't exist. Never write plugin
+output anywhere else, and never into the plugin's own directory. If a
+legacy copy of a plugin file (e.g. `idea.md`) exists at the project root and
+the `launchpad/` one does not, tell the user and offer to move it — don't move or overwrite it silently.
 
 ---
 
@@ -53,15 +62,15 @@ one round of questions is enough, don't interrogate.
 
 ---
 
-## Phase 3 – Write `idea.md`
+## Phase 3 – Write `launchpad/idea.md`
 
 Write (or update, preserving anything the user has already refined) a file
-named `idea.md` in the current project with the structured fields above as
+named `launchpad/idea.md` in the current project with the structured fields above as
 headed sections. Keep it in the user's own words and framing as much as
 possible — this is their idea, not a template filled with generic business
 prose.
 
-If `idea.md` already exists, treat this as a refinement pass: show what
+If `launchpad/idea.md` already exists, treat this as a refinement pass: show what
 changed rather than silently overwriting.
 
 ---
